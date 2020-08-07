@@ -67,7 +67,6 @@ public class Enforcer extends ManagementEnforcer {
         this.watcher = null;
 
         model = m;
-        model.printModel();
         fm = FunctionMap.loadFunctionMap();
 
         initialize();

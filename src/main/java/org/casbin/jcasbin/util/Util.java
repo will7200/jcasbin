@@ -24,20 +24,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Util {
-    public static boolean enableLog = true;
     private static Pattern evalReg = Pattern.compile("\\beval\\(([^),]*)\\)");
-
-    private static Logger LOGGER = LoggerFactory.getLogger("org.casbin.jcasbin");
-
     /**
      * logPrint prints the log.
      *
      * @param v the log.
      */
     public static void logPrint(String v) {
-        if (enableLog) {
-            LOGGER.info(v);
-        }
     }
 
     /**
@@ -47,10 +40,6 @@ public class Util {
      * @param v the log.
      */
     public static void logPrintf(String format, String... v) {
-        if (enableLog) {
-            String tmp = String.format(format, (Object[]) v);
-            LOGGER.info(tmp);
-        }
     }
 
     /**
@@ -60,9 +49,6 @@ public class Util {
      * @param v the log.
      */
     public static void logPrintfWarn(String format, Object... v) {
-        if (enableLog) {
-            LOGGER.warn(format, v);
-        }
     }
 
     /**
@@ -72,9 +58,6 @@ public class Util {
      * @param v the log.
      */
     public static void logPrintfError(String format, Object... v) {
-        if (enableLog) {
-            LOGGER.error(format, v);
-        }
     }
 
     /**

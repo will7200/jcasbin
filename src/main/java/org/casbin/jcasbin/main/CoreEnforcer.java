@@ -123,7 +123,6 @@ public class CoreEnforcer {
     public void loadModel() {
         model = newModel();
         model.loadModel(this.modelPath);
-        model.printModel();
         fm = FunctionMap.loadFunctionMap();
         aviatorEval = null;
     }
@@ -208,7 +207,6 @@ public class CoreEnforcer {
         model.clearPolicy();
         adapter.loadPolicy(model);
 
-        model.printPolicy();
         if (autoBuildRoleLinks) {
             buildRoleLinks();
         }
@@ -232,7 +230,6 @@ public class CoreEnforcer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        model.printPolicy();
         if (autoBuildRoleLinks) {
             buildRoleLinks();
         }
@@ -281,7 +278,6 @@ public class CoreEnforcer {
      * @param enable whether to enable Casbin's log.
      */
     public void enableLog(boolean enable) {
-        Util.enableLog = enable;
     }
 
     /**
@@ -451,7 +447,7 @@ public class CoreEnforcer {
 
         return result;
     }
-    
+
     private void getRTokens(Map<String, Object> parameters, Object ...rvals) {
       for(String rKey : model.model.get("r").keySet()) {
         if(!(rvals.length == model.model.get("r").get(rKey).tokens.length)) { continue; }
@@ -459,7 +455,7 @@ public class CoreEnforcer {
           String token = model.model.get("r").get(rKey).tokens[j];
           parameters.put(token, rvals[j]);
         }
-   
+
       }
     }
 
